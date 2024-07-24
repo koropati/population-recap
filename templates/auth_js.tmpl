@@ -1,0 +1,198 @@
+{{define "auth_js.tmpl"}}
+<script src="assets/libs/feather-icons/feather.min.js"></script>
+<script src="assets/js/plugins.init.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@pnotify/core/dist/PNotify.js"></script>
+<script>
+    function submitRegisterForm(event) {
+        event.preventDefault();
+        const formDataRegister = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            confirm_password: document.getElementById('confirm_password').value
+        };
+
+        const btnSubmit = document.getElementById("submit-btn"); 
+        btnSubmit.disabled = true;
+
+        axios.post('/register', formDataRegister)
+        .then(response => {
+            const data = response.data;
+            if (data.success) {
+                PNotify.success({
+                    title: 'Registration Successful',
+                    text: 'Congratulations! Your registration has been successful.',
+                    icon: 'success-icon.png'
+                });
+
+                setTimeout(function() {
+                    btnSubmit.disabled = false;
+                    window.location.href = `/login`;
+                }, 3000)
+            } else {
+                PNotify.error({
+                    title: 'Registration Failed',
+                    text: 'Sorry, an error occurred: ' + data.message,
+                    icon: 'error-icon.png'
+                });
+                btnSubmit.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            PNotify.error({
+                title: 'Error Server',
+                text: 'A server error occurred, please try again later.',
+                icon: 'error-icon.png'
+            });
+            btnSubmit.disabled = false;
+        });
+    }
+
+    function submitLoginForm(event) {
+        event.preventDefault();
+        const formDataRegister = {
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+        };
+
+        const btnSubmit = document.getElementById("submit-btn"); 
+        btnSubmit.disabled = true;
+
+        axios.post('/login', formDataRegister)
+        .then(response => {
+            const data = response.data;
+            if (data.success) {
+
+                PNotify.success({
+                    title: 'Login Successful',
+                    text: 'You will Redirected to admin panel',
+                    icon: 'success-icon.png'
+                });
+
+                setTimeout(function() {
+                    btnSubmit.disabled = false;
+                    window.location.href = `/dashboard`;
+                }, 3000)
+
+            } else {
+                PNotify.error({
+                    title: 'Login Failed',
+                    text: 'Wrong Email or Password',
+                    icon: 'error-icon.png'
+                });
+                btnSubmit.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            PNotify.error({
+                title: 'Login Failed',
+                text: error.message,
+                icon: 'error-icon.png'
+            });
+            btnSubmit.disabled = false;
+        });
+    }
+
+    function submitForgotPasswordForm(event) {
+        event.preventDefault();
+        const formDataForgotPassword = {
+            email: document.getElementById('email').value,
+        };
+
+        const btnSubmit = document.getElementById("submit-btn"); 
+        btnSubmit.disabled = true;
+
+        axios.post('/forgot-password', formDataForgotPassword)
+        .then(response => {
+            const data = response.data;
+            if (data.success) {
+
+                PNotify.success({
+                    title: 'Forgot Password Success',
+                    text: 'Success Send Forgot Password Link',
+                    icon: 'success-icon.png'
+                });
+
+                setTimeout(function() {
+                    window.location.href = `/login`;
+                    btnSubmit.disabled = false;
+                }, 3000)
+                
+            } else {
+                PNotify.error({
+                    title: 'Forgot Password Failed',
+                    text: 'Failed Send Forgot Password',
+                    icon: 'error-icon.png'
+                });
+                btnSubmit.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            PNotify.error({
+                title: 'Forgot Password Error',
+                text: error.message,
+                icon: 'error-icon.png'
+            });
+            btnSubmit.disabled = false;
+        });
+    }
+
+    function submitResetPasswordForm(event) {
+        event.preventDefault();
+        const formResetPassword = {
+            password: document.getElementById('password').value,
+            re_password: document.getElementById('re_password').value,
+            token: document.getElementById('token').value,
+        };
+
+        const btnSubmit = document.getElementById("submit-btn"); 
+        btnSubmit.disabled = true;
+
+        axios.post('/reset-password', formResetPassword)
+        .then(response => {
+            const data = response.data;
+            if (data.success) {
+
+                PNotify.success({
+                    title: 'Reset Password Success',
+                    text: 'Success Reset Password, You redirected to login page',
+                    icon: 'success-icon.png'
+                });
+
+                setTimeout(function() {
+                    btnSubmit.disabled = false;
+                    window.location.href = `/login`;
+                }, 3000)
+                
+            } else {
+                PNotify.error({
+                    title: 'Reset Password Failed',
+                    text: 'Failed Reset Password',
+                    icon: 'error-icon.png'
+                });
+                btnSubmit.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            PNotify.error({
+                title: 'Reset Password Error',
+                text: error.message,
+                icon: 'error-icon.png'
+            });
+            btnSubmit.disabled = false;
+        });
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (Notification.permission !== 'granted')
+            Notification.requestPermission();
+    });
+</script>
+{{end}}

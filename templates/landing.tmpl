@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth" dir="ltr">
+
+<head>
+    
+    <title>WokDev - Home</title>
+    {{ template "meta.tmpl" }}
+    {{ template "landing_css.tmpl" }}
+</head>
+    {{ template "landing_header.tmpl" }}
+    <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900">
+        <!-- Start Navbar -->
+        {{ template "landing_navbar.tmpl" }}
+        <!-- End Navbar -->
+        <!-- Start Hero -->
+        {{ template "landing_hero.tmpl" }}
+        <!-- End Hero -->
+        <!-- Start Section-->
+        {{ template "landing_about.tmpl"}}
+        <!-- End -->
+        <!-- Start -->
+        {{ template "landing_experience.tmpl"}}
+        <!-- End -->
+        <!-- Start -->
+        {{ template "landing_available.tmpl"}}
+        <!-- End -->
+        <!-- Start -->
+        {{ template "landing_portfolio.tmpl"}}
+        <!-- End -->
+        <!-- Footer Start -->
+        {{ template "landing_footer.tmpl"}}
+        <!-- Footer End -->
+    </body>
+</html>

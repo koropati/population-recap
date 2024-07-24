@@ -1,0 +1,93 @@
+{{ define "landing_hero.tmpl" }}
+<!-- Start Hero -->
+<section class="md:h-screen py-36 h-auto relative flex items-center background-effect overflow-hidden 
+            before:content-[''] before:absolute before:-z-1 sm:before:-bottom-80 before:-bottom-40 before:start-0 before:end-36 before:mx-auto before:rounded-full before:bg-indigo-600 sm:before:size-[50rem] before:size-[30rem]">
+    <div class="absolute inset-0 jarallax" data-jarallax data-speed="0.5" style="background: url('assets/images/personal/hero-overlay.png') center;"></div>
+    <div class="container relative z-1">
+        <div class="grid grid-cols-1 mt-5">
+            <div class="title-heading">
+                <div class="grid md:grid-cols-12 mt-12">
+                    <div class="lg:col-span-4 md:col-span-6 order-2 lg:order-1 mt-6 md:mt-0 relative">
+                        <div class="rounded-md lg:shadow-md lg:dark:shadow-gray-800 lg:absolute lg:top-14 lg:bg-white lg:dark:bg-slate-900 lg:p-6">
+                            <h5 class="mb-3 text-2xl font-bold lg:text-black lg:dark:text-white text-white">I'm Professional Web Developer</h5>
+                            <p class="para-desc lg:text-slate-400 text-slate-200 dark:text-slate-200 mb-0">Obviously I'm a Web Designer. Web Developer with over 3 years of experience.</p>
+                            <div class="mt-4">
+                                <a href="#portfolio" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md">Hire me</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end col-->
+                    <div class="lg:col-span-4 lg:block hidden lg:order-2"></div>
+                    <div class="lg:col-span-4 md:col-span-6 order-1 lg:order-3">
+                        <h4 class="lg:text-[64px] lg:leading-[1.1] text-[40px] font-bold lg:text-black lg:dark:text-white text-white mb-0">
+                            John
+                            <br>
+                            S
+                            <span class="typewrite" data-period="2000" data-type='[ "tradford!"]'></span>
+                        </h4>
+                    </div>
+                    <!--end col-->
+                </div>
+                <!--end grid-->
+            </div>
+        </div>
+        <!--end grid-->
+    </div>
+    <!--end container-->
+    <div class="absolute inset-0 bg-gradient-to-b lg:from-indigo-600/5 lg:to-indigo-600/20 from-indigo-600/10 to-indigo-600 lg:-z-2"></div>
+    <ul class="circles absolute inset-0 h-full w-full overflow-hidden p-0 mb-0">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+<!--end section-->
+<div class="relative">
+    <div class="absolute block w-full h-auto bottom-[25px] z-1 start-0">
+        <a href="#about">
+            <i class="mdi mdi-arrow-down absolute top-0 start-0 end-0 text-center inline-flex items-center justify-center rounded-full bg-white dark:bg-slate-900 size-12 mx-auto shadow-md dark:shadow-gray-800"></i>
+        </a>
+    </div>
+    <div class="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden text-white dark:text-slate-900">
+        <svg class="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!--end section-->
+<section class="pt-12">
+    <div class="container relative">
+        <div class="grid md:grid-cols-6 grid-cols-2 justify-center gap-[30px]">
+            <div class="mx-auto py-4">
+                <img src="assets/images/client/amazon.svg" class="h-6" alt="">
+            </div>
+            <div class="mx-auto py-4">
+                <img src="assets/images/client/google.svg" class="h-6" alt="">
+            </div>
+            <div class="mx-auto py-4">
+                <img src="assets/images/client/lenovo.svg" class="h-6" alt="">
+            </div>
+            <div class="mx-auto py-4">
+                <img src="assets/images/client/paypal.svg" class="h-6" alt="">
+            </div>
+            <div class="mx-auto py-4">
+                <img src="assets/images/client/shopify.svg" class="h-6" alt="">
+            </div>
+            <div class="mx-auto py-4">
+                <img src="assets/images/client/spotify.svg" class="h-6" alt="">
+            </div>
+        </div>
+        <!--end grid-->
+    </div>
+    <!--end container-->
+</section>
+<!--end section-->
+<!-- End Hero -->
+{{ end }}
